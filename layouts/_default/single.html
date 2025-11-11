@@ -1,0 +1,110 @@
+{{ define "main" }}
+<div class="min-h-screen w-full px-8 md:px-16 lg:px-24 py-12">
+    <!-- Navigation -->
+    <nav class="mb-8">
+        <a href="/" class="text-lg uppercase tracking-wider hover:underline">← Home</a>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-12 max-w-4xl">
+        <h1 class="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-4">
+            {{ .Title }}
+        </h1>
+        <div class="text-sm uppercase tracking-wider opacity-60">
+            {{ .Date.Format "2006-01-02" }}
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="prose prose-invert prose-lg max-w-4xl">
+        <div class="text-lg leading-relaxed space-y-6">
+            {{ .Content }}
+        </div>
+    </article>
+
+    <!-- Navigation Footer -->
+    <footer class="mt-16 pt-8 border-t-4 border-pirate-green max-w-4xl">
+        <nav class="flex justify-between">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="brutal-border brutal-shadow-sm brutal-link bg-pirate-green text-pirate-black px-6 py-3 font-bold uppercase tracking-wider inline-block">
+                ← Previous
+            </a>
+            {{ else }}
+            <div></div>
+            {{ end }}
+
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="brutal-border brutal-shadow-sm brutal-link bg-pirate-green text-pirate-black px-6 py-3 font-bold uppercase tracking-wider inline-block">
+                Next →
+            </a>
+            {{ end }}
+        </nav>
+    </footer>
+</div>
+
+<style>
+/* Custom prose styling for content */
+.prose h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.prose h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.prose p {
+    margin-bottom: 1.5rem;
+}
+
+.prose a {
+    color: #00ff00;
+    text-decoration: underline;
+}
+
+.prose a:hover {
+    text-decoration: none;
+}
+
+.prose ul, .prose ol {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.prose code {
+    background-color: #001100;
+    padding: 0.2rem 0.4rem;
+    border: 2px solid #00ff00;
+}
+
+.prose pre {
+    background-color: #001100;
+    border: 4px solid #00ff00;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.prose pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.prose blockquote {
+    border-left: 4px solid #00ff00;
+    padding-left: 1rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+</style>
+{{ end }}

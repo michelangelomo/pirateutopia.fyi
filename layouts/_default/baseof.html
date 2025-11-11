@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pirate-black': '#000000',
+                        'pirate-green': '#00ff00',
+                    },
+                    fontFamily: {
+                        'mono': ['"Courier New"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+</head>
+<body class="bg-pirate-black text-pirate-green font-mono">
+    {{ block "main" . }}{{ end }}
+</body>
+</html>

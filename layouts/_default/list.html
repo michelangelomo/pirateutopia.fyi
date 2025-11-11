@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="min-h-screen w-full px-8 md:px-16 lg:px-24 py-12">
+    <!-- Navigation -->
+    <nav class="mb-8">
+        <a href="/" class="text-lg uppercase tracking-wider hover:underline">← Home</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="mb-12">
+        <h1 class="text-2xl md:text-3xl font-bold uppercase tracking-wider">
+            {{ .Title }}
+        </h1>
+    </header>
+
+    <!-- Posts List -->
+    <section class="max-w-4xl">
+        {{ if .Pages }}
+        <div class="space-y-3">
+            {{ range .Pages }}
+            <div class="flex justify-between items-baseline border-b-2 border-pirate-green pb-2">
+                <a href="{{ .Permalink }}" class="text-lg hover:underline uppercase tracking-wider">
+                    {{ .Title }}
+                </a>
+                <span class="text-sm opacity-60 ml-4">{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            {{ end }}
+        </div>
+        {{ else }}
+        <div class="text-xl uppercase tracking-wider py-8">
+            No posts yet.
+        </div>
+        {{ end }}
+    </section>
+</div>
+{{ end }}

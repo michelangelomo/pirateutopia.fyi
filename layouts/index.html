@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="min-h-screen w-full px-8 md:px-16 lg:px-24 py-12">
+    <!-- Header -->
+    <header class="mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold uppercase tracking-[0.2em] brutal-title">
+            {{ .Site.Title }}
+        </h1>
+    </header>
+
+    <!-- Main Content -->
+    <section class="max-w-4xl mb-16">
+        <div class="text-xl md:text-2xl leading-relaxed space-y-6">
+            {{ .Content }}
+        </div>
+    </section>
+
+    <!-- Posts Section -->
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ if $posts }}
+    <section class="mt-24 max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wider mb-8">Posts</h2>
+
+        <div class="space-y-3">
+            {{ range $posts }}
+            <div class="flex justify-between items-baseline border-b-2 border-pirate-green pb-2">
+                <a href="{{ .Permalink }}" class="text-lg hover:underline uppercase tracking-wider">
+                    {{ .Title }}
+                </a>
+                <span class="text-sm opacity-60 ml-4">{{ .Date.Format "2006-01-02" }}</span>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+</div>
+{{ end }}

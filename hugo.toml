@@ -1,0 +1,6 @@
+baseURL = 'https://pirateutopia.fyi/'
+languageCode = 'en-us'
+title = 'PIRATE UTOPIA'
+
+[permalinks]
+  posts = '/:slug/'
