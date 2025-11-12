@@ -4,6 +4,10 @@ description: A PCB making and manufacturing journey as a creative escape from Ch
 date: 2025-11-12
 preview: ""
 draft: false
+tags:
+    - english
+categories:
+    - prototype
 ---
 
 In 2024 I started thinking about making a simple PCB as a Christmas present for friends and family. *Why?* I just wanted to learn how to make printed circuit boards (PCB), and I tried but never seriously.

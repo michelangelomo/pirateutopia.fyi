@@ -18,9 +18,23 @@
         <div class="space-y-3">
             {{ range .Pages }}
             <div class="flex justify-between items-baseline border-b-2 border-pirate-green pb-2">
-                <a href="{{ .Permalink }}" class="text-lg hover:underline uppercase tracking-wider">
-                    {{ .Title }}
-                </a>
+                <div class="flex items-baseline gap-3 flex-wrap">
+                    <a href="{{ .Permalink }}" class="text-lg hover:underline uppercase tracking-wider">
+                        {{ .Title }}
+                    </a>
+                    <div class="flex gap-2 flex-wrap">
+                        {{ if .Params.tags }}
+                        {{ range .Params.tags }}
+                        <span class="text-xs px-2 py-1 bg-pirate-green text-black font-semibold uppercase tracking-wide">{{ . }}</span>
+                        {{ end }}
+                        {{ end }}
+                        {{ if .Params.categories }}
+                        {{ range .Params.categories }}
+                        <span class="text-xs px-2 py-1 bg-black text-pirate-green font-semibold uppercase tracking-wide border border-pirate-green">{{ . }}</span>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
                 <span class="text-sm opacity-60 ml-4">{{ .Date.Format "2006-01-02" }}</span>
             </div>
             {{ end }}

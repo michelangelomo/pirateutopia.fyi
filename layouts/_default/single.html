@@ -22,6 +22,24 @@
         </div>
     </article>
 
+    <!-- Tags and Categories -->
+    {{ if or .Params.tags .Params.categories }}
+    <div class="mt-12 max-w-4xl">
+        <div class="flex gap-2 flex-wrap">
+            {{ if .Params.tags }}
+            {{ range .Params.tags }}
+            <span class="text-xs px-2 py-1 bg-pirate-green text-black font-semibold uppercase tracking-wide">{{ . }}</span>
+            {{ end }}
+            {{ end }}
+            {{ if .Params.categories }}
+            {{ range .Params.categories }}
+            <span class="text-xs px-2 py-1 bg-black text-pirate-green font-semibold uppercase tracking-wide border border-pirate-green">{{ . }}</span>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+
     <!-- Navigation Footer -->
     <footer class="mt-16 pt-8 border-t-4 border-pirate-green max-w-4xl">
         <nav class="flex justify-between">
